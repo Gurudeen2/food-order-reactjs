@@ -7,12 +7,14 @@ const Backdrop = (props) => {
   return <div className={classes.backdrop}></div>;
 };
 const ModalOverlay = (props) => {
-  <div className={classes.modal}>
-    <div className={classes.content}>{props.children}</div>
-  </div>;
+  return (
+    <div className={classes.modal}>
+      <div className={classes.content}>{props.children}</div>
+    </div>
+  );
 };
+const PortalElement = document.getElementById("overlay");
 const Modal = (props) => {
-  const PortalElement = document.getElementById("overlay");
   return (
     <Fragment>
       {ReactDOM.createPortal(<Backdrop />, PortalElement)}
