@@ -19,10 +19,13 @@ const HeaderCartButton = (props) => {
     if (items.length === 0) {
       return;
     }
-       setBtnHighlighted(true);
-    setTimeout(() => {
-      setBtnHighlighted(false)
+    setBtnHighlighted(true);
+    const timer = setTimeout(() => {
+      setBtnHighlighted(false);
     }, 300);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [items]);
 
   return (
